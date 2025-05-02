@@ -7,7 +7,7 @@ $username = "root";
 $password = ""; 
 $dbname = "";
 $conn = new mysqli($servername, $username, $password, $dbname);
-// Pastikan data dikirim dari index.php
+// Pastikan data dikirim dari index.html
 if (isset($_POST["username"]) && isset($_POST["password"])) {
     $username = trim($_POST["username"]);
     $password = trim($_POST["password"]);
@@ -29,8 +29,8 @@ if (isset($_POST["username"]) && isset($_POST["password"])) {
                 $_SESSION["id_admin"] = $id_admin;
                 $_SESSION["username"] = $username;
 
-                // Redirect ke halaman include/index.html
-                header("Location: include/index.php");
+                // Redirect ke halaman index.html
+                header("Location: index.html");
                 exit;
             } else {
                 echo "Password salah.";
