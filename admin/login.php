@@ -5,7 +5,7 @@ session_start();
 $servername = "localhost";
 $username = "root";
 $password = ""; 
-$dbname = "";
+$dbname = "db_fruitin";
 $conn = new mysqli($servername, $username, $password, $dbname);
 // Pastikan data dikirim dari index.html
 if (isset($_POST["username"]) && isset($_POST["password"])) {
@@ -30,7 +30,7 @@ if (isset($_POST["username"]) && isset($_POST["password"])) {
                 $_SESSION["username"] = $username;
 
                 // Redirect ke halaman index.html
-                header("Location: index.html");
+                header("Location: include/index.php");
                 exit;
             } else {
                 echo "Password salah.";

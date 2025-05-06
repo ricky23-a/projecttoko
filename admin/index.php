@@ -1,3 +1,6 @@
+
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -86,7 +89,7 @@
   <div class="login-form">
     <h2><strong>Fruitin</strong></h2>
     <p>Belanja Buah Segar Hanya Ada Disini</p>
-    <form class="user" method="post" action="">
+    <form class="user" method="post" action="login.php">
       <input
         type="text"
         class="form-control"
@@ -106,3 +109,4 @@
   </div>
 </body>
 </html>
+
