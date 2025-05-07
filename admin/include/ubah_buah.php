@@ -21,12 +21,12 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         if (move_uploaded_file($gambar_tmp, $gambar_path)) {
             try {
                 $update = "UPDATE tb_buah 
-                           SET nama_buah = :nama, 
-                               harga_beli = :harga_beli, 
-                               harga_jual = :harga_jual, 
-                               tanggal = :tanggal, 
-                               gambar = :gambar 
-                           WHERE id_buah = :id";
+                            SET nama_buah = :nama, 
+                                harga_beli = :harga_beli, 
+                                harga_jual = :harga_jual, 
+                                tanggal = :tanggal, 
+                                gambar = :gambar 
+                            WHERE id_buah = :id";
                 $hasil = $pdo->prepare($update);
                 $hasil->execute([
                     ':nama' => $nama_buah,
