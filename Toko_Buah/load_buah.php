@@ -33,7 +33,7 @@ if (count($data) === 0) {
                     Stok: <?= $row['stok']; ?><br>
                     Harga: Rp<?= number_format($row['harga_jual'], 0, ',', '.'); ?>
                 </p>
-                <a href="transaksi.php" class="btn btn-primary">Pesan Sekarang</a>
+                <a href="transaksi.php?id=<?= $buah['id_buah'] ?>" class="btn btn-primary">Pesan Sekarang</a>
             </div>
         </div>
     </div>
