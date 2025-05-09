@@ -8,8 +8,13 @@
     align-items: center;
     text-align: center;
     justify-content: center;
+
 }
 section {
     scroll-margin-top: 80px; 
   }
   
+
+  body {
+    font-family: 'Poppins', sans-serif;
+}

@@ -1,0 +1,112 @@
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Fruitin</title>
+  <link rel="icon" type="image" href="img/bg1.jpg" />
+  <style>
+    html, body {
+      margin: 0;
+      padding: 0;
+      height: 100%;
+      overflow: hidden;
+      font-family: sans-serif;
+    }
+
+    body {
+      background-image: url('img/bg2.jpg');
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .login-form {
+      background-color: rgba(0, 0, 0, 0.6);
+      padding: 30px;
+      border-radius: 10px;
+      max-width: 400px;
+      width: 100%;
+      box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+    }
+
+    .login-form h2 {
+      text-align: center;
+      margin-bottom: 10px;
+      color: #fff;
+    }
+
+    .login-form p {
+      text-align: center;
+      margin-bottom: 20px;
+      color: #ccc;
+    }
+
+    .form-control {
+      background-color: #4a4a4a;
+      border: 1px solid #666;
+      color: #fff;
+      border-radius: 10px;
+      padding: 12px;
+      width: 100%;
+      margin-bottom: 15px;
+    }
+
+    .form-control::placeholder {
+      color: #bbb;
+    }
+
+    .btn-primary {
+      background-color: #007bff;
+      border-radius: 10px;
+      font-weight: bold;
+      padding: 12px;
+      transition: 0.3s;
+      border: none;
+      width: 100%;
+      color: white;
+      cursor: pointer;
+    }
+
+    .btn-primary:hover {
+      background-color: #0056b3;
+    }
+
+    @media (max-width: 768px) {
+      .login-form {
+        margin: 20px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="login-form">
+    <h2><strong>Fruitin</strong></h2>
+    <p>Belanja Buah Segar Hanya Ada Disini</p>
+    <form class="user" method="post" action="login.php">
+      <input
+        type="text"
+        class="form-control"
+        name="username"
+        placeholder="Username"
+        required
+      />
+      <input
+        type="password"
+        class="form-control"
+        name="password"
+        placeholder="Password"
+        required
+      />
+      <button type="submit" class="btn-primary">Login</button>
+    </form>
+  </div>
+</body>
+</html>
+

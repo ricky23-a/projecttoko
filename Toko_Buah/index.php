@@ -1,3 +1,17 @@
+<?php include '../admin/config.php';
+$search = isset($_GET['search']) ? $_GET['search'] : '';
+
+
+if ($search != '') {
+    $stmt = $pdo->prepare("SELECT * FROM tb_buah WHERE nama_buah LIKE ?");
+    $stmt->execute(['%' . $search . '%']);
+} else {
+    $stmt = $pdo->query("SELECT * FROM tb_buah");
+}
+$data = $stmt->fetchAll();
+?>
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -5,9 +19,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
-
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
-    <title>Document</title>
+    <title>Fruitin</title>
 </head>
 <body>
     <nav class="navbar navbar-expand-lg bg-dark navbar-dark fixed-top py-3">
@@ -49,46 +63,23 @@
         </div>
     </section>
     <!-- services -->
-     <section class="pt-5" id="services">
-        <div class="container">
-            <div class="row text-center g-4">
-                <div class="col-md">
-                    <div class="card bg-light text-dark border">
-                        <div class="img">
-                            <img src="images/jeruk.jpg" class="p-2 card-img-top" alt="...">
-                        </div>
-                        <div class="card-body">
-                          <h5 class="card-title">Apel</h5>
-                          <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                          <a href="#" class="btn btn-primary">Go somewhere</a>
-                        </div>
-                      </div>
-                </div>
-                <div class="col-md">
-                    <div class="card bg-light text-dark border">
-                        <img src="images/hotel.svg" class="p-2 card-img-top" alt="...">
-                        <div class="card-body">
-                          <h5 class="card-title">Card title</h5>
-                          <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                          <a href="#" class="btn btn-primary">Go somewhere</a>
-                        </div>
-                      </div>
-                </div>
-                <div class="col-md">
-                    <div class="card bg-light text-dark border">
-                        <img src="images/wisata.svg" class="p-2 card-img-top" alt="...">
-                        <div class="card-body">
-                          <h5 class="card-title">Card title</h5>
-                          <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                          <a href="#" class="btn btn-primary">Go somewhere</a>
-                        </div>
-                      </div>
-                </div>
+    <section class="pt-5" id="services">
+    <div class="container  text-center">
+        <h2>Daftar Buah</h2>
 
-            </div>
-            </div>
+        <!-- FORM PENCARIAN -->
+        <form method="GET" class="mb-4 d-flex mx-auto" style="max-width: 400px;">
+            <input type="text" name="search" id="search-input" class="form-control me-2" placeholder="Cari buah...">
+        </form>
+
+        <!-- Container untuk kartu buah -->
+        <div id="buah-container" class="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-4 g-4 justify-content-center">
+          
         </div>
-     </section>
+    </div>
+</section>
+
+
      <!-- contact us -->
     <section class="p-5" id="contact">
         <div class="container">
@@ -102,9 +93,11 @@
                             </li>
 
                             <li class="list-group-item">
+                                <i class="bi bi-telephone"></i>
                                 <span class="fw-bold">Mobile Phone:</span><br> (+62) 822-9054-5680
                                 </li>
                                 <li class="list-group-item">
+                                    <i class="bi bi-envelope"></i>
                                     <span class="fw-bold">Email:</span><br> sekolahvokasi@ung.ac.id
                                     </li>
                     </ul>
@@ -129,7 +122,7 @@
         </div>
      </footer>
 
-
+<script src="script.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.min.js" integrity="sha384-0pUGZvbkm6XF6gxjEnlmuGrJXVbNuzT9qBBavbLwCsOGabYfZo0T0to5eqruptLy" crossorigin="anonymous"></script>
 </body>
 </html>
