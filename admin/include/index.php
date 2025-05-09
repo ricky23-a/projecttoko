@@ -68,6 +68,9 @@ if (!isset($_SESSION['id_admin'])) {
             case 'ubah_buah':
                 include("ubah_buah.php");
                 break;
+            case 'tambah_buah':
+              include("tambah_buah.php");
+              break;
         }
       ?>
     </main>

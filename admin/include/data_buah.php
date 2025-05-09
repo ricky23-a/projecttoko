@@ -78,7 +78,7 @@ $currentUrl = strtok($_SERVER["REQUEST_URI"], '?');
                                 <a href="hapus_buah.php?id=<?php echo $setdata['id_buah']?>" class="btn btn-danger btn-sm" title="Hapus">
                                 <i class="bi bi-x-lg"></i>
                                 </a>
-                                <a href="?page=tambah_stok&id=<?= $setdata['id_buah'] ?>" class="btn btn-info btn-sm" title="Tambah Stok">
+                                <a href="?page=tambah_buah&id=<?= $setdata['id_buah'] ?>" class="btn btn-info btn-sm" title="tambah_buah">
                                     <i class="bi bi-plus-lg"></i>
                                 </a>
                                 <a href="?page=ubah_buah&id=<?php echo $setdata['id_buah']?>" class="btn btn-success btn-sm" title="Ubah">

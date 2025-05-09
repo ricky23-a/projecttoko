@@ -49,7 +49,7 @@ $data = $stmt->fetchAll();
         </div>
     </nav>
     <!-- header -->
-    <section class="bg-light text-dark text-center text-sm-start pt-5 mt-5">
+    <section class="header-section text-dark text-center text-sm-start pt-5 mt-5">
         <div class="container">
             <div class="d-flex align-items-center">
 
