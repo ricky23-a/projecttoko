@@ -1,7 +1,7 @@
 <?php include '../admin/config.php';
 $search = isset($_GET['search']) ? $_GET['search'] : '';
 
-// Query data buah
+
 if ($search != '') {
     $stmt = $pdo->prepare("SELECT * FROM tb_buah WHERE nama_buah LIKE ?");
     $stmt->execute(['%' . $search . '%']);
@@ -64,7 +64,7 @@ $data = $stmt->fetchAll();
     </section>
     <!-- services -->
     <section class="pt-5" id="services">
-    <div class="container mt-5 text-center">
+    <div class="container  text-center">
         <h2>Daftar Buah</h2>
 
         <!-- FORM PENCARIAN -->
@@ -74,7 +74,7 @@ $data = $stmt->fetchAll();
 
         <!-- Container untuk kartu buah -->
         <div id="buah-container" class="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-4 g-4 justify-content-center">
-            <!-- Data akan dimuat otomatis lewat AJAX -->
+          
         </div>
     </div>
 </section>
