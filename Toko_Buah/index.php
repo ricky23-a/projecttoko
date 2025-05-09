@@ -3,10 +3,10 @@ $search = isset($_GET['search']) ? $_GET['search'] : '';
 
 
 if ($search != '') {
-    $stmt = $pdo->prepare("SELECT * FROM tb_buah WHERE nama_buah LIKE ?");
+    $stmt = $pdo->prepare("SELECT * FROM tb_menu WHERE nama_menu LIKE ?");
     $stmt->execute(['%' . $search . '%']);
 } else {
-    $stmt = $pdo->query("SELECT * FROM tb_buah");
+    $stmt = $pdo->query("SELECT * FROM tb_menu");
 }
 $data = $stmt->fetchAll();
 ?>
@@ -21,14 +21,14 @@ $data = $stmt->fetchAll();
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
-    <title>Fruitin</title>
+    <title>Aroma Senja</title>
 </head>
 <body>
-    <nav class="navbar navbar-expand-lg bg-dark navbar-dark fixed-top py-3">
+    <nav class="navbar navbar-expand-lg bg-black navbar-dark fixed-top py-3">
        <div class="container">
         <a href="#" class="navbar-brand">
             <i class="bi bi-google-play"></i>
-              Fruitin</a>
+              Aroma <span class="text"> Senja</span></a>
         <button
             class="navbar-toggler"
             type="button"
@@ -49,30 +49,28 @@ $data = $stmt->fetchAll();
         </div>
     </nav>
     <!-- header -->
-    <section class="header-section text-dark text-center text-sm-start pt-5 mt-5">
+    <section class="header-section text-white text-center text-sm-start pt-5 mt-5">
         <div class="container">
             <div class="d-flex align-items-center">
 
-                <div>
-                    <h1>Belanja<span class="text-primary"> Buah</span> Segar Lebih Mudah dan Cepat</h1>
-                    <p class="lead">Pilih, beli, dan nikmati buah segar tanpa harus keluar rumah.</p>
-                    <button class="btn btn-primary ">Pesan Sekarang</button>
-                </div>
-                <img class="img-fluid w-50 d-none d-sm-block" src="images/header.svg" alt="header">
-            </div>
+                <div class="title col-md-6">
+                    <h1>Membeli<span class="text"> Coffee</span> Disenja Hari Dapat Membuatmu menikmati kenikmatan <span class="text"> Coffee</span>.</h1>
+                    <p class="lead">Pilih, beli, Coffee di Aroma Senja.</p>
+                    <a href="#services" class="btn">Pesan Sekarang</a>
         </div>
     </section>
     <!-- services -->
     <section class="pt-5" id="services">
-    <div class="container  text-center">
-        <h2>Daftar Buah</h2>
+    <div class="container  text-center text-white">
+        <h2>Daftar <span class="text"> Coffee</span></h2>
 
         <!-- FORM PENCARIAN -->
         <form method="GET" class="mb-4 d-flex mx-auto" style="max-width: 400px;">
-            <input type="text" name="search" id="search-input" class="form-control me-2" placeholder="Cari buah...">
+            <input type="text" name="search" id="search-input" class="form-control me-2" placeholder="Cari Coffee...">
         </form>
 
         <!-- Container untuk kartu buah -->
+        
         <div id="buah-container" class="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-4 g-4 justify-content-center">
           
         </div>
@@ -81,11 +79,11 @@ $data = $stmt->fetchAll();
 
 
      <!-- contact us -->
-    <section class="p-5" id="contact">
+    <section class="py-5" id="contact">
         <div class="container">
             <div class="row g-4 align-items-center">
                 <div class="col-md">
-                    <h2 class="text-center mb-4">Contact Us</h2>
+                    <h2 class="text-white text-center mb-4">Contact Us</h2>
                     <ul class="list-group list-group-flush" lead>
                         <li class="list-group-item">
                             <i class="bi bi-geo-alt"></i>
@@ -124,5 +122,6 @@ $data = $stmt->fetchAll();
 
 <script src="script.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.min.js" integrity="sha384-0pUGZvbkm6XF6gxjEnlmuGrJXVbNuzT9qBBavbLwCsOGabYfZo0T0to5eqruptLy" crossorigin="anonymous"></script>
+    <script src="keranjang.js"></script>
 </body>
 </html>
