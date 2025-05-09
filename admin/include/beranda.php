@@ -1,13 +1,4 @@
-<?php
-try {
-    $stmt = $pdo->query("SELECT COUNT(*) as jumlah FROM tb_buah");
-    $data = $stmt->fetch(PDO::FETCH_ASSOC);
-    $jumlah_jenis = $data['jumlah'];
-} catch (PDOException $e) {
-    echo '<div class="alert alert-danger">Gagal mengambil data: ' . $e->getMessage() . '</div>';
-    $jumlah_jenis = 0;
-}
-?>
+
 
 <div class="container-fluid">
     <h2 class="mb-4">Dashboard</h2>

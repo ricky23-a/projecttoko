@@ -4,6 +4,12 @@ include("../config.php");
 if (!isset($_SESSION['id_admin'])) {
     $tools->refresh("0", "index.php");
 } else {
+
+ 
+$get = $pdo->query("SELECT * FROM tb_admin where id_admin='".$_SESSION['id_admin']."'");
+$set = $get->fetch();
+                    
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -37,21 +43,41 @@ if (!isset($_SESSION['id_admin'])) {
 </style>
 </head>
 <body>
-  <div class="d-flex">
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top">
+  <div class="container-fluid">
+    <a class="px-3 navbar-brand fw-bold" href="#"><i class="bi bi-cup-hot-fill"></i> Fruitin Admin</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarAdmin" aria-controls="navbarAdmin" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarAdmin">
+      <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+        <li class="nav-item">
+          <a class="nav-link fs-5 fw-bold" href="?page=beranda">Admin <?php echo $set['nama'] ?></a>
+        </li>
+  </ul>
+  </div>
+</nav>
+  
+<div class="d-flex">
     <!-- Sidebar -->
     <aside class="sidebar d-none d-md-block">
       <div class="p-4">
-        <h2 class="fs-4 fw-bold mb-4">Fruitin</h2>
         <nav class="nav flex-column">
-          <a href="?page=beranda">Beranda</a>
-          <a href="?page=input_buah">Input Buah</a>
-          <a href="?page=data_buah">Data Buah</a>
-          <a href="#">Settings</a>
+          <a href="?page=beranda"><i class="bi bi-house-fill"></i> Beranda</a>
+          <a href="?page=input_menu"><i class="bi bi-file-earmark-plus-fill"></i> Input Menu</a>
+          <a href="?page=data_menu"><i class="bi bi-bar-chart-steps"></i> Data Menu</a>
+          <a href="?page=data_transaksi"><i class="bi bi-activity"></i> Data Transaksi</a>
+          <a class="text-danger" href="?page=logout"><i class="bi bi-box-arrow-left"></i> Logout</a>
         </nav>
       </div>
     </aside>
 
+    
+    
+
     <!-- Main Content -->
+     
     <main class="flex-fill p-4 bg-white">
       <?php
         $page = $_GET['page'] ?? 'beranda';
@@ -59,18 +85,24 @@ if (!isset($_SESSION['id_admin'])) {
             case 'beranda':
                 include("beranda.php");
                 break;
-            case 'input_buah':
-                include("input_buah.php");
+            case 'input_menu':
+                include("input_menu.php");
                 break;
-            case 'data_buah':
-                include("data_buah.php");
+            case 'data_menu':
+                include("data_menu.php");
                 break;
             case 'ubah_buah':
                 include("ubah_buah.php");
                 break;
             case 'tambah_buah':
               include("tambah_buah.php");
+               break;
+            case 'logout':
+                include("logout.php");
               break;
+            case 'data_transaksi':
+                include("data_transaksi.php");
+                break;
         }
       ?>
     </main>
