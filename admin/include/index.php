@@ -16,9 +16,10 @@ $set = $get->fetch();
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Admin Fruitin</title>
+  <title>Admin</title>
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4Q6Gf2aSP4eDXB8Miphtr37CMZZQ5oXLH2yaXMJ2w8e2ZtHTl7GptT4jmndRuHDT" crossorigin="anonymous">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.12.1/font/bootstrap-icons.min.css">
+  <link rel="icon" type="image" href="../img/3.svg" />
   <style>
     body {
         background-color: #f8f9fa;
@@ -45,7 +46,7 @@ $set = $get->fetch();
 <body>
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top">
   <div class="container-fluid">
-    <a class="px-3 navbar-brand fw-bold" href="#"><i class="bi bi-cup-hot-fill"></i> Fruitin Admin</a>
+    <a class="px-3 navbar-brand fw-bold" href="#"><i class="bi bi-cup-hot-fill"></i> Admin</a>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarAdmin" aria-controls="navbarAdmin" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
@@ -91,11 +92,11 @@ $set = $get->fetch();
             case 'data_menu':
                 include("data_menu.php");
                 break;
-            case 'ubah_buah':
-                include("ubah_buah.php");
+            case 'ubah_menu':
+                include("ubah_menu.php");
                 break;
-            case 'tambah_buah':
-              include("tambah_buah.php");
+            case 'tambah_menu':
+              include("tambah_menu.php");
                break;
             case 'logout':
                 include("logout.php");

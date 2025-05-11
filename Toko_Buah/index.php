@@ -22,12 +22,13 @@ $data = $stmt->fetchAll();
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
     <title>Aroma Senja</title>
+    <link rel="icon" type="image" href="images/3.svg" />
 </head>
 <body>
     <nav class="navbar navbar-expand-lg bg-black navbar-dark fixed-top py-3">
        <div class="container">
         <a href="#" class="navbar-brand">
-            <i class="bi bi-google-play"></i>
+            <i class="bi bi-cup-hot"></i>
               Aroma <span class="text"> Senja</span></a>
         <button
             class="navbar-toggler"
@@ -62,7 +63,7 @@ $data = $stmt->fetchAll();
     <!-- services -->
     <section class="pt-5" id="services">
     <div class="container  text-center text-white">
-        <h2>Daftar <span class="text"> Coffee</span></h2>
+        <h2>Daftar <span class="text"> Menu</span></h2>
 
         <!-- FORM PENCARIAN -->
         <form method="GET" class="mb-4 d-flex mx-auto" style="max-width: 400px;">
@@ -78,47 +79,67 @@ $data = $stmt->fetchAll();
 </section>
 
 
-     <!-- contact us -->
-    <section class="py-5" id="contact">
-        <div class="container">
-            <div class="row g-4 align-items-center">
-                <div class="col-md">
-                    <h2 class="text-white text-center mb-4">Contact Us</h2>
-                    <ul class="list-group list-group-flush" lead>
-                        <li class="list-group-item">
-                            <i class="bi bi-geo-alt"></i>
-                            <span class="fw-bold">Location:</span><br> Jalan Arif Rahman Hakim
-                            </li>
-
-                            <li class="list-group-item">
-                                <i class="bi bi-telephone"></i>
-                                <span class="fw-bold">Mobile Phone:</span><br> (+62) 822-9054-5680
-                                </li>
-                                <li class="list-group-item">
-                                    <i class="bi bi-envelope"></i>
-                                    <span class="fw-bold">Email:</span><br> sekolahvokasi@ung.ac.id
-                                    </li>
-                    </ul>
-                </div>
-                <div class="col-md">
-                    <img class="img-fluid d-none d-lg-block" src="images/contact.svg" alt="contact">
-                    
-                </div>
-            </div>
-
+    <!-- contact us -->
+<section class="py-5" id="contact" style="background: linear-gradient(to right, #010101, #010101); color: white;">
+  <div class="container">
+    <h2 class="text-center mb-5 fw-bold">Contact Us</h2>
+    <div class="row g-4 align-items-start">
+      
+      <div class="col-md-6">
+        <div class="card bg-dark border-0 shadow-lg text-light p-4 rounded-4">
+          <div class="mb-3">
+            <i class="bi bi-geo-alt fs-4 text-info me-2"></i>
+            <span class="fw-semibold">Location:</span>
+            <p class="ms-4 mb-0">Jalan Arif Rahman Hakim</p>
+          </div>
+          <div class="mb-3">
+            <i class="bi bi-telephone fs-4 text-info me-2"></i>
+            <span class="fw-semibold">Mobile Phone:</span>
+            <p class="ms-4 mb-0">(+62) 822-9054-5680</p>
+          </div>
+          <div>
+            <i class="bi bi-envelope fs-4 text-info me-2"></i>
+            <span class="fw-semibold">Email:</span>
+            <p class="ms-4 mb-0">sekolahvokasi@ung.ac.id</p>
+          </div>
         </div>
-    </section>
+      </div>
+
+      <div class="col-md-6">
+        <iframe
+          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d63834.16255934319!2d122.99882077837013!3d0.549007787108402!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x32792b4799e5e75d%3A0x6dcc4d0923155967!2sGorontalo%2C%20Kabupaten%20Gorontalo%2C%20Gorontalo!5e0!3m2!1sid!2sid!4v1746942979357!5m2!1sid!2sid"
+          width="100%" height="350" style="border:0; border-radius: 16px;" allowfullscreen="" loading="lazy"
+          referrerpolicy="no-referrer-when-downgrade">
+        </iframe>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
 
     <!-- footer -->
-     <footer class="bg-dark text-light text-center p-5 position-relative">
-        <div class="container">
-            <p class="lead">Copyright &copy; 2025 Fruitin</p>
-            <a href="#" class="position-absolute bottom-0 end-0 p-5">
-                <i class="bi bi-arrow-up-circle h1"></i>          
+<footer class="text-white text-center py-5" style="background-color: #b8895c;">
+  <div class="container">
+    <!-- Social media icons -->
+    <div class="mb-3">
+      <a href="#" class="text-white mx-2"><i class="bi bi-instagram fs-5"></i></a>
+      <a href="#" class="text-white mx-2"><i class="bi bi-twitter fs-5"></i></a>
+      <a href="#" class="text-white mx-2"><i class="bi bi-facebook fs-5"></i></a>
+    </div>
 
-            </a>
-        </div>
-     </footer>
+    <!-- Navigation links -->
+    <ul class="nav justify-content-center mb-3">
+      <li class="nav-item"><a href="#" class="nav-link px-3 text-white">Home</a></li>
+      <li class="nav-item"><a href="#services" class="nav-link px-3 text-white">Services</a></li>
+      <li class="nav-item"><a href="#contact" class="nav-link px-3 text-white">Kontak</a></li>
+    </ul>
+
+    <!-- Footer credits -->
+    <p class="mb-0">Created by <strong>Aroma Senja</strong> | &copy; 2025.</p>
+  </div>
+</footer>
 
 <script src="script.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.min.js" integrity="sha384-0pUGZvbkm6XF6gxjEnlmuGrJXVbNuzT9qBBavbLwCsOGabYfZo0T0to5eqruptLy" crossorigin="anonymous"></script>

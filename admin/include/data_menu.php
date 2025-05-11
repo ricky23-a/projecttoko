@@ -1,4 +1,4 @@
-<?php
+<?php 
 try {
     $filterQuery = "SELECT * FROM tb_menu WHERE 1";
     $params = [];
@@ -70,7 +70,15 @@ $currentUrl = strtok($_SERVER["REQUEST_URI"], '?');
                         <tr>
                             <td><?= $no; ?></td>
                             <td><?= htmlspecialchars($setdata['nama_menu']); ?></td>
-                            <td><?= $setdata['stok']; ?></td>
+                            <td>
+                                <?php if ($setdata['stok'] <= 0): ?>
+                                    <span class="badge bg-danger">Stok Habis</span>
+                                <?php elseif ($setdata['stok'] <= 5): ?>
+                                    <span class="badge bg-warning text-dark">Stok Menipis (<?= $setdata['stok']; ?>)</span>
+                                <?php else: ?>
+                                    <?= $setdata['stok']; ?>
+                                <?php endif; ?>
+                            </td>
                             <td><?= 'Rp ' . number_format($setdata['harga_beli'], 0, ',', '.'); ?></td>
                             <td><?= 'Rp ' . number_format($setdata['harga_jual'], 0, ',', '.'); ?></td>
                             <td><?= date('d-m-Y H:i', strtotime($setdata['tanggal'])); ?></td>

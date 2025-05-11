@@ -130,7 +130,8 @@ if (isset($_POST['pesan'])) {
 
     <div class="d-flex justify-content-end gap-2 mt-3">
         <?php if (!empty($keranjang)): ?>
-        <form action="checkout.php" method="post">
+        <form action="checkout.php" method="post" class="d-flex gap-2">
+            <input type="text" name="nama_pelanggan" class="form-control" placeholder="Nama Pelanggan" required style="max-width: 250px;">
             <button type="submit" class="btn btn-success">Checkout</button>
         </form>
         <?php endif; ?>
