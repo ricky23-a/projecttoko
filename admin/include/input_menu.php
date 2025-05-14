@@ -10,7 +10,19 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
     $gambar_nama = $_FILES['gambar']['name'];
     $gambar_tmp = $_FILES['gambar']['tmp_name'];
-    $gambar_path = '../../Toko_Buah/images/' . $gambar_nama;
+    $gambar_ext = strtolower(pathinfo($gambar_nama, PATHINFO_EXTENSION));
+    $mime_type = mime_content_type($gambar_tmp);
+
+    $allowed_ext = ['jpg', 'jpeg', 'png'];
+    $allowed_mime = ['image/jpeg', 'image/png'];
+
+    // Validasi ekstensi dan mime type
+    if (!in_array($gambar_ext, $allowed_ext) || !in_array($mime_type, $allowed_mime)) {
+        echo '<div class="alert alert-danger">File harus berupa gambar JPG atau PNG!</div>';
+        exit;
+    }
+
+    $gambar_path = '../../Coffee/images/' . $gambar_nama;
 
     if ($harga_beli > $harga_jual) {
         echo '<div class="alert alert-danger">Harga beli tidak boleh lebih besar dari harga jual!</div>';
@@ -72,7 +84,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
   <div class="input-group mb-3">
     <div class="form-floating flex-grow-1">
-      <input type="file" class="form-control" id="gambar" name="gambar" accept="image/*" placeholder="Gambar Menu" required>
+     <input type="file" class="form-control" id="gambar" name="gambar" accept=".jpg,.jpeg,.png" placeholder="Gambar Menu" required>
       <label for="gambar">Gambar Menu</label>
     </div>
   </div>

@@ -18,7 +18,8 @@ try {
     $transaksis = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
 } catch (PDOException $e) {
-    echo '<div class="alert alert-danger">Gagal mengambil data: ' . $e->getMessage() . '</div>';
+    echo '<div class="alert alert-danger">Gagal mengambil data: ' . 
+         htmlspecialchars($e->getMessage()) . '</div>';
     $transaksis = [];
 }
 ?>
@@ -27,64 +28,58 @@ try {
     <h1 class="h3 mb-4 text-gray-800">Data Transaksi</h1>
 
     <form method="get" action="" class="row mb-3">
-        <input type="hidden" name="page" value="data_transaksi">
-        <div class="col-md-3">
-            <label for="bulan" class="form-label">Filter Bulan</label>
-            <select name="bulan" id="bulan" class="form-select">
-                <option value="">Semua</option>
-                <?php for ($i = 1; $i <= 12; $i++) { ?>
-                    <option value="<?= $i ?>" <?= (isset($_GET['bulan']) && $_GET['bulan'] == $i) ? 'selected' : '' ?>>
-                        <?= date('F', mktime(0, 0, 0, $i, 10)) ?>
-                    </option>
-                <?php } ?>
-            </select>
-        </div>
-        <div class="col-md-3">
-            <label for="tanggal" class="form-label">Filter Tanggal</label>
-            <input type="date" name="tanggal" id="tanggal" class="form-control" value="<?= $_GET['tanggal'] ?? '' ?>">
-        </div>
-        <div class="col-md-3 d-flex align-items-end">
-            <button type="submit" class="btn btn-primary">Terapkan Filter</button>
-        </div>
-    </form>
+    <input type="hidden" name="page" value="data_transaksi">
+    <div class="col-md-3">
+        <label for="bulan" class="form-label">Filter Bulan</label>
+        <select name="bulan" id="bulan" class="form-select">
+            <option value="">Semua</option>
+            <?php for ($i = 1; $i <= 12; $i++) : ?>
+                <option value="<?= $i ?>" <?= (isset($_GET['bulan']) && $_GET['bulan'] == $i) ? 'selected' : '' ?>>
+                    <?= date('F', mktime(0, 0, 0, $i, 10)) ?>
+                </option>
+            <?php endfor; ?>
+        </select>
+    </div>
+    <div class="col-md-3">
+        <label for="tanggal" class="form-label">Filter Tanggal</label>
+        <input type="date" name="tanggal" id="tanggal" class="form-control" value="<?= $_GET['tanggal'] ?? '' ?>">
+    </div>
+    <div class="col-md-3 d-flex align-items-end">
+        <button type="submit" class="btn btn-primary">Terapkan Filter</button>
+    </div>
+</form>
 
-    <div class="card shadow mb-4">
-        <div class="card-body">
-            <div class="table-responsive">
-                <table class="table table-bordered">
-                    <thead class="table-dark text-center">
-                        <tr>
-                            <th>No</th>
-                            <th>Nama Pelanggan</th>
-                            <th>Produk Dibeli</th>
-                            <th>Total</th>
-                            <th>Tanggal</th>
-                            <th>Status</th>
-
-                        </tr>
-                    </thead>
-                    <tbody>
-                    <?php
-                    $no = 1;
-                    foreach ($transaksis as $transaksi) {
-                        // Ambil detail transaksi + nama menu
-                        $stmtDetail = $pdo->prepare("SELECT dt.*, m.nama_menu FROM tb_detail_transaksi dt 
-                            JOIN tb_menu m ON dt.id_menu = m.id_menu 
-                            WHERE dt.id_transaksi = ?");
+<div class="card shadow mb-4">
+    <div class="card-body">
+        <div class="table-responsive">
+            <table class="table table-bordered">
+                <thead class="table-dark text-center">
+                    <tr>
+                        <th>No</th>
+                        <th>Nama Pelanggan</th>
+                        <th>Produk Dibeli</th>
+                        <th>Total</th>
+                        <th>Tanggal</th>
+                        <th>Status</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <?php $no = 1;
+                    foreach ($transaksis as $transaksi) :
+                        // Ambil detail transaksi langsung dari tb_detail_transaksi (tanpa JOIN tb_menu)
+                        $stmtDetail = $pdo->prepare("SELECT nama_menu, jumlah FROM tb_detail_transaksi WHERE id_transaksi = ?");
                         $stmtDetail->execute([$transaksi['id_transaksi']]);
                         $details = $stmtDetail->fetchAll(PDO::FETCH_ASSOC);
 
                         // Gabungkan nama menu dan jumlah
                         $produkList = "";
                         foreach ($details as $item) {
-                            $produkList .= "{$item['nama_menu']} (x{$item['jumlah']})<br>";
+                            $produkList .= htmlspecialchars($item['nama_menu']) . " (x" . $item['jumlah'] . ")<br>";
                         }
 
-                        // Tombol status
-                        $statusButton = $transaksi['status'] === 'Selesai' 
-                        ? '<span class="badge bg-success">Selesai</span>' 
-                        : '<a href="ubah_status.php?id=' . $transaksi['id_transaksi'] . '" class="btn btn-sm btn-warning">Belum Selesai</a>';
-
+                        $statusButton = ($transaksi['status'] === 'Selesai')
+                            ? '<span class="badge bg-success">Selesai</span>'
+                            : '<a href="ubah_status.php?id=' . $transaksi['id_transaksi'] . '" class="btn btn-sm btn-warning">Belum Selesai</a>';
                     ?>
                         <tr>
                             <td class="text-center"><?= $no++ ?></td>
@@ -92,14 +87,16 @@ try {
                             <td><?= $produkList ?></td>
                             <td>Rp <?= number_format($transaksi['total'], 0, ',', '.') ?></td>
                             <td><?= date('d-m-Y', strtotime($transaksi['tanggal'])) ?></td>
-                            <td class="text-center"><?= $statusButton ?> <a href="hapus_transaksi.php?id=<?= $transaksi['id_transaksi'] ?>" class="btn btn-sm btn-danger" onclick="return confirm('Yakin ingin hapus?')">
-                                    <i class="bi bi-trash"></i></a>
-                        </td>
+                            <td class="text-center">
+                                <?= $statusButton ?>
+                                <a href="hapus_transaksi.php?id=<?= $transaksi['id_transaksi'] ?>" class="btn btn-sm btn-danger" onclick="return confirm('Yakin ingin hapus?')">
+                                    <i class="bi bi-trash"></i>
+                                </a>
+                            </td>
                         </tr>
-                    <?php } ?>
-                    </tbody>
-                </table>
-            </div>
+                    <?php endforeach; ?>
+                </tbody>
+            </table>
         </div>
     </div>
 </div>

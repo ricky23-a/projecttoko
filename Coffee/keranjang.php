@@ -44,7 +44,8 @@ if (isset($_POST['pesan'])) {
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Keranjang Belanja</title>
+    <title>Aroma Senja</title>
+    <link rel="icon" type="image" href="images/3.svg" />
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css">
     <style>
         body {
