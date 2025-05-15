@@ -31,7 +31,7 @@
       max-width: 400px;
       width: 100%;
       box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
-      margin-left: 300px;
+      margin-left: 700px;
     }
 
     .login-form h2 {

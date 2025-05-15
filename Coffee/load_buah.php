@@ -48,12 +48,12 @@ if (count($data) === 0) {
                             data-id="<?= $row['id_menu'] ?>" data-stok="<?= $row['stok'] ?>">+</button>
                 </div>
 
-                <!-- Tombol PESAN LANGSUNG -->
+                <!-- Tombol PESAN LANGSUNG
                 <form method="post" action="keranjang.php" class="d-inline">
                     <input type="hidden" name="id" value="<?= $row['id_menu'] ?>">
                     <input type="hidden" name="jumlah" value="0">
                     <button type="submit" name="pesan" class="btn">Pesan</button>
-                </form>
+                </form> -->
 
                 <!-- Tombol TAMBAH KE KERANJANG -->
                 <form method="post" action="keranjang.php" class="d-inline">

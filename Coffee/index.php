@@ -45,6 +45,13 @@ $data = $stmt->fetchAll();
                
                 <li class="nav-item">
                     <a href="#contact" class="nav-link">Contact Us</a></li>
+
+                <!-- <li class="nav-item">
+  <a href="keranjang.php" class="nav-link position-relative">
+    <i class="bi bi-cart"></i>
+  </a> -->
+</li>
+
             </ul>
         </div>
         </div>
