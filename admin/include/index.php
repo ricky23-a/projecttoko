@@ -28,6 +28,9 @@ $set = $get->fetch();
         background-color: #343a40;
         color: #fff;
         min-height: 100vh;
+        position: sticky;
+        top: 0;
+        overflow-y: auto;
     }
     .sidebar a {
         color: #adb5bd;
