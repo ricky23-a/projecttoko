@@ -1,0 +1,55 @@
+:root {
+  --bg: #010101;
+}
+
+#services img {
+  height: 160px;
+  width: 200px;
+}
+.img {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  text-align: center;
+  justify-content: center;
+}
+section {
+  scroll-margin-top: 60px;
+}
+
+body {
+  font-family: "Poppins", sans-serif;
+  background-color: #010101;
+}
+
+.navbar {
+  border-bottom: 1px solid #513c28;
+}
+
+.header-section {
+  background: url("/projecttoko/Coffee/images/bg2.png") no-repeat center
+    center/cover;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  text-align: left;
+  padding-left: 5rem;
+}
+
+.text {
+  color: #ad6d2f;
+}
+
+.btn {
+  color: #ffff;
+  background-color: #ad6d2f;
+}
+.btn:hover {
+  background-color: #8b5e3c; /* coklat lebih terang */
+  color: #fff;
+}
+
+.card {
+  background-color: #b6895b;
+}

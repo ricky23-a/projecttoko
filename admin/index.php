@@ -1,13 +1,10 @@
-
-
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Fruitin</title>
-  <link rel="icon" type="image" href="img/bg1.jpg" />
+  <title>Aroma Senja</title>
+  <link rel="icon" type="image" href="img/3.svg" />
   <style>
     html, body {
       margin: 0;
@@ -18,7 +15,7 @@
     }
 
     body {
-      background-image: url('img/bg2.jpg');
+      background-image: url('img/bg4.jpg');
       background-size: cover;
       background-position: center;
       background-repeat: no-repeat;
@@ -34,6 +31,7 @@
       max-width: 400px;
       width: 100%;
       box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+      margin-left: 700px;
     }
 
     .login-form h2 {
@@ -87,8 +85,8 @@
 </head>
 <body>
   <div class="login-form">
-    <h2><strong>Fruitin</strong></h2>
-    <p>Belanja Buah Segar Hanya Ada Disini</p>
+    <h2><strong>Aroma Senja</strong></h2>
+    <p>Selamat Datang Admin</p>
     <form class="user" method="post" action="login.php">
       <input
         type="text"
