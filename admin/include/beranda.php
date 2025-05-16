@@ -41,7 +41,7 @@ $transaksi_terbaru = $pdo->query("SELECT * FROM tb_transaksi ORDER BY tanggal DE
                         </div>
                     </div>
                     <div>
-                        <h6 class="mb-1">Jumlah Jenis Kopi</h6>
+                        <h6 class="mb-1">Jumlah Jenis Menu</h6>
                         <h3 class="mb-0 fw-bold"><?= $jumlah_jenis ?></h3>
                     </div>
                 </div>

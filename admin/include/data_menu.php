@@ -98,11 +98,11 @@ $currentUrl = strtok($_SERVER["REQUEST_URI"], '?');
                     </tbody>
                 </table>
 
-                <div class="text-center mt-3">
+                <!-- <div class="text-center mt-3">
                     <a href="cetak_laporan_menu.php" class="btn btn-secondary btn-sm shadow-sm">
                         <i class="fas fa-print fa-sm text-white-50"></i> Cetak Laporan
                     </a>
-                </div>
+                </div> -->
 
             </div>
         </div>
