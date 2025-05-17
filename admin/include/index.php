@@ -23,15 +23,17 @@ $set = $get->fetch();
         background-color: #f8f9fa;
     }
     .sidebar {
-        min-width: 250px;
-        max-width: 250px;
-        background-color: #343a40;
-        color: #fff;
-        min-height: 100vh;
-        position: sticky;
-        top: 0;
-        overflow-y: auto;
-    }
+    position: fixed;
+    top: 56px; /* Tinggi navbar */
+    left: 0;
+    bottom: 0;
+    width: 250px;
+    background-color: #343a40;
+    color: #fff;
+    overflow-y: auto;
+    z-index: 1000;
+}
+
     .sidebar a {
         color: #adb5bd;
         text-decoration: none;
@@ -79,7 +81,7 @@ $set = $get->fetch();
   </aside>
 
   <!-- Main Content -->
-  <main class="flex-fill p-4 bg-white">
+ <main class="flex-fill p-4 bg-white" style="margin-left: 250px;">
     <?php
       $page = $_GET['page'] ?? 'beranda';
       switch ($page) {
