@@ -15,11 +15,8 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $gambar_tmp = $_FILES['gambar']['tmp_name'];
     
     // Tentukan path penyimpanan gambar
-    $folder = __DIR__ . '/../../Toko_menu/images/';
-    if (!is_dir($folder)) {
-        mkdir($folder, 0777, true); // Buat folder jika belum ada
-    }
-    $gambar_path = $folder . $gambar_nama;
+  
+    $gambar_path = '../../Coffee/images/' . $gambar_nama;
 
     if ($harga_beli > $harga_jual) {
         echo '<div class="alert alert-danger">Harga beli tidak boleh lebih besar dari harga jual!</div>';
@@ -75,7 +72,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
   <div class="mb-3">
     <label for="gambar" class="form-label">Gambar Menu</label>
     <input type="file" class="form-control" id="gambar" name="gambar" accept="image/*" required>
-    <p class="mt-2"><img src="../../Toko_menu/images/<?php echo $setmenu['gambar']; ?>" width="500"></p>
+    <p class="mt-2"><img src="../../Coffee/images/<?php echo $setmenu['gambar']; ?>" width="500"></p>
   </div>
   <button type="submit" class="btn btn-primary">Simpan Perubahan</button>
 </form>
