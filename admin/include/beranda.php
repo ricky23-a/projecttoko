@@ -27,6 +27,8 @@ $transaksi_terbaru = $pdo->query("SELECT * FROM tb_transaksi ORDER BY tanggal DE
 <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" rel="stylesheet">
 <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 
+
+
 <div class="container-fluid py-4">
     <h2 class="mb-4">Dashboard</h2>
 
