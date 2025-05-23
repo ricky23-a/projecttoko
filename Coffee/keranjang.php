@@ -137,7 +137,7 @@ if (isset($_POST['pesan'])) {
         </form>
         <?php endif; ?>
         <form action="index.php" method="get">
-            <button type="submit" class="btn btn-secondary">Kembali ke Home</button>
+            <button type="submit" class="btn btn-secondary">Kembali ke Menu</button>
         </form>
     </div>
 </div>
