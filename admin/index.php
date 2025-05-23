@@ -54,6 +54,7 @@
       padding: 12px;
       width: 100%;
       margin-bottom: 15px;
+      margin-left: -12px;
     }
 
     .form-control::placeholder {
@@ -67,9 +68,10 @@
       padding: 12px;
       transition: 0.3s;
       border: none;
-      width: 100%;
+      width: 107%;
       color: white;
       cursor: pointer;
+      margin-left: -12px;
     }
 
     .btn-primary:hover {
@@ -80,14 +82,40 @@
       .login-form {
         margin: 20px;
       }
+      .btn-primary {
+        width: 108%;
+      }
+    }
+
+    .popup {
+      position: fixed;
+      top: 20px;
+      right: 20px;
+      background-color: #f44336;
+      color: white;
+      padding: 16px 24px;
+      border-radius: 8px;
+      box-shadow: 0 2px 12px rgba(0,0,0,0.2);
+      z-index: 1000;
+      animation: slideDown 0.5s ease;
+    }
+
+    @keyframes slideDown {
+      from { transform: translateY(-100%); opacity: 0; }
+      to { transform: translateY(0); opacity: 1; }
+    }
+
+    .hidden {
+      display: none;
     }
   </style>
 </head>
 <body>
+
   <div class="login-form">
     <h2><strong>Aroma Senja</strong></h2>
     <p>Selamat Datang Admin</p>
-    <form class="user" method="post" action="login.php">
+    <form method="post" action="login.php">
       <input
         type="text"
         class="form-control"
@@ -105,6 +133,27 @@
       <button type="submit" class="btn-primary">Login</button>
     </form>
   </div>
+
+  <div id="popup" class="popup hidden">
+    <p id="popup-message"></p>
+  </div>
+
+  <script>
+    window.onload = function () {
+      const params = new URLSearchParams(window.location.search);
+      const error = params.get("error");
+
+      if (error) {
+        const popup = document.getElementById("popup");
+        const message = document.getElementById("popup-message");
+        message.textContent = decodeURIComponent(error.replace(/\+/g, " "));
+        popup.classList.remove("hidden");
+
+        setTimeout(() => {
+          popup.classList.add("hidden");
+        }, 4000);
+      }
+    };
+  </script>
 </body>
 </html>
-
