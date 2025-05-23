@@ -139,7 +139,7 @@ $data = $stmt->fetchAll();
     <!-- Navigation links -->
     <ul class="nav justify-content-center mb-3">
       <li class="nav-item"><a href="#" class="nav-link px-3 text-white">Home</a></li>
-      <li class="nav-item"><a href="#services" class="nav-link px-3 text-white">Services</a></li>
+      <li class="nav-item"><a href="#services" class="nav-link px-3 text-white">pesan</a></li>
       <li class="nav-item"><a href="#contact" class="nav-link px-3 text-white">Contact Us</a></li>
     </ul>
 
